@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://d0llxe6oms0yy"]
+
+[ext_resource type="Script" path="res://Script/CharacterBody2D.gd" id="1_uoill"]
+[ext_resource type="Texture2D" uid="uid://5sj0pjtq15jh" path="res://art/idle2.png" id="2_c6ak7"]
+[ext_resource type="Texture2D" uid="uid://bwhbr3e3ykdgb" path="res://art/idle1.png" id="2_minw3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m0k72"]
+size = Vector2(63, 66)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fginp"]
+animations = [{
+"frames": [{
+"duration": 3.0,
+"texture": ExtResource("2_minw3")
+}, {
+"duration": 3.0,
+"texture": ExtResource("2_c6ak7")
+}],
+"loop": true,
+"name": &"front_idle",
+"speed": 5.0
+}]
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_uoill")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_m0k72")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+scale = Vector2(10, 10)
+zoom = Vector2(1.5, 1.5)
+position_smoothing_enabled = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_fginp")
+animation = &"front_idle"

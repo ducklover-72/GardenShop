@@ -1,0 +1,45 @@
+[gd_scene load_steps=4 format=3 uid="uid://wlfdsy5ya43o"]
+
+[ext_resource type="Script" path="res://Main Menu.gd" id="1_koogn"]
+[ext_resource type="FontFile" uid="uid://dl0nl633vdm4e" path="res://art/Pixels.ttf" id="2_v4vte"]
+[ext_resource type="Texture2D" uid="uid://qq1re07hl4du" path="res://art/title4.png" id="3_bpv7f"]
+
+[node name="Main Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = -7.0
+offset_right = 1.0
+offset_bottom = -7.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_koogn")
+
+[node name="play" type="Button" parent="."]
+layout_mode = 2
+offset_left = 485.0
+offset_top = 255.0
+offset_right = 618.0
+offset_bottom = 318.0
+theme_override_fonts/font = ExtResource("2_v4vte")
+theme_override_font_sizes/font_size = 75
+text = "Play"
+
+[node name="quit" type="Button" parent="."]
+layout_mode = 0
+offset_left = 434.0
+offset_top = 357.0
+offset_right = 672.0
+offset_bottom = 428.0
+theme_override_fonts/font = ExtResource("2_v4vte")
+theme_override_font_sizes/font_size = 75
+text = "Rage Quit"
+
+[node name="title" type="Sprite2D" parent="."]
+position = Vector2(566, 111)
+texture = ExtResource("3_bpv7f")
+
+[connection signal="pressed" from="play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="quit" to="." method="_on_quit_pressed"]
